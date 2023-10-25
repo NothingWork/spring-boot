@@ -1,0 +1,11 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ysu.mapper.RepairMapper">
+    <select id="addRepair"  >
+        insert into repair values (#{user_id},#{location},#{phone},#{type},#{desc},#{pics},#{date})
+    </select>
+    <select id="getRecords" resultType="com.ysu.domain.Repair">
+        select * from repair
+    </select>
+</mapper>

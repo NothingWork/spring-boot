@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ysu.mapper.DeviceMapper">
+    <select id="queryDevices" resultType="com.ysu.domain.Device">
+        select * from device where user_id = #{user_id} and ( `desc` like #{queryInfo} or `name` like #{queryInfo})
+    </select>
+    <select id="changeState">
+        update device set state = #{state} where device_id = #{device_id}
+    </select>
+    <select id="updateDevice">
+        update device set name = #{name},`desc` = #{desc} where device_id = #{device_id}
+    </select>
+    <select id="findByDesc" resultType="com.ysu.domain.Device">
+        select * from device where `desc` = #{desc} and user_id = #{user_id}
+    </select>
+    <select id="insertDevice">
+        insert into device values (default,#{name},#{desc},#{state},#{user_id})
+    </select>
+    <select id="removeDevice">
+        delete from device where device_id = #{device_id}
+    </select>
+</mapper>

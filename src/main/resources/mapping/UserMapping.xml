@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ysu.mapper.UserMapper">
+    <select id="findByUsername" resultType="com.ysu.domain.User">
+        select * from account where username = #{username}
+    </select>
+    <select id="insertUser" resultType="com.ysu.domain.User">
+        insert into account values(default,#{username},#{password},#{email})
+    </select>
+    <select id="updateUser">
+        update account set username = #{username},email = #{email} where id= #{id}
+    </select>
+</mapper>
